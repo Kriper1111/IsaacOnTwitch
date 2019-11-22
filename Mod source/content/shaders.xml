@@ -360,8 +360,9 @@
 				TexCoord0 = TexCoord;
 				
 				if (Enabled > 0) {
-					Position.xy += (Position.xy - PlayerPos.xy)*(Intensity-0.2);
-					gl_Position = Transform * vec4(Position.xyz, Intensity);    
+					vec3 Position0 = Position;
+					Position0.xy += (Position.xy - PlayerPos.xy)*(Intensity-0.2);
+					gl_Position = Transform * vec4(Position0.xyz, Intensity);    
 				}
 				else {
 					gl_Position = Transform * vec4(Position.xyz, 1);
